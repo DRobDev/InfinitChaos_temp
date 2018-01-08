@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1511CE13-2C31-4B5D-9D79-503A35551E42}</ProjectGuid>
+    <ProjectTypeGuids>{69878862-DA7D-4DC6-B0A1-50D8FAB4242F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PsmClient</RootNamespace>
+    <AssemblyName>PsmClient</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG; PSM;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <DefineConstants>PSM;</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Sce.PlayStation.Core" />
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\..\Third Party\_DLLS_\MonoGame-3.2\PSM\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="FarseePhysicsPSM">
+      <HintPath>..\..\Third Party\_DLLS_\Farseer\PSM\FarseePhysicsPSM.dll</HintPath>
+    </Reference>
+    <Reference Include="Lidgren.Network">
+      <HintPath>..\..\Third Party\_DLLS_\MonoGame-3.2\PSM\Lidgren.Network.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Infinite Chaos Solution\Client\ClientEngine.cs">
+      <Link>ClientEngine.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Infinite Chaos Solution\Client\PlayerControl\ControllablePlayer.cs">
+      <Link>PlayerControl\ControllablePlayer.cs</Link>
+    </Compile>
+    <Compile Include="AppMain.cs" />
+    <Compile Include="..\..\Infinite Chaos Solution\Client\Networking\ClientNetworkManager.cs">
+      <Link>Networking\ClientNetworkManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Infinite Chaos Solution\Client\PlayerControl\RemotePlayer.cs">
+      <Link>PlayerControl\RemotePlayer.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ShaderProgram Include="shaders\Simple.fcg" />
+    <ShaderProgram Include="shaders\Simple.vcg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PsmMetadata Include="app.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PsmShared\PsmShared.csproj">
+      <Project>{81AAAF37-A18A-4553-8B5A-1D66C8F2765F}</Project>
+      <Name>PsmShared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>rmdir /s /q "PsmClient-unsigned\Application\Content"
+mkdir "PsmClient-unsigned\Application\Content"
+xcopy /s /i "..\..\..\..\Infinite Chaos Solution\Content Project\Content Project\bin\PSM\Content\*" "PsmClient-unsigned\Application\Content"</PreBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Networking\" />
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\AnimatedSprites\Player\Dude_Attack_Data.xml">
+      <Link>Content\AnimatedSprites\Player\Dude_Attack_Data.xml</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\AnimatedSprites\Player\Dude_Attack_Sprite.xnb">
+      <Link>Content\AnimatedSprites\Player\Dude_Attack_Sprite.xnb</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\AnimatedSprites\Player\Dude_Idle_Data.xml">
+      <Link>Content\AnimatedSprites\Player\Dude_Idle_Data.xml</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\AnimatedSprites\Player\Dude_Idle_Sprite.xnb">
+      <Link>Content\AnimatedSprites\Player\Dude_Idle_Sprite.xnb</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\AnimatedSprites\Player\Dude_Run_Data.xml">
+      <Link>Content\AnimatedSprites\Player\Dude_Run_Data.xml</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\AnimatedSprites\Player\Dude_Run_Sprite.xnb">
+      <Link>Content\AnimatedSprites\Player\Dude_Run_Sprite.xnb</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\AnimatedSprites\Player\walk.xml">
+      <Link>Content\AnimatedSprites\Player\walk.xml</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\Fonts\VerdanaFont.xnb">
+      <Link>Content\Fonts\VerdanaFont.xnb</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\Map\TestMap.tide">
+      <Link>Content\Map\TestMap.tide</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\Map\TestMap.xnb">
+      <Link>Content\Map\TestMap.xnb</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\Map\TestMapColliderVerts">
+      <Link>Content\Map\TestMapColliderVerts</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\Font.xnb">
+      <Link>Content\Font.xnb</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\Grass copy.xnb">
+      <Link>Content\Grass copy.xnb</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\Rocks copy.xnb">
+      <Link>Content\Rocks copy.xnb</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+    <Content Include="bin\Debug\PsmClient-unsigned\Application\Content\work.xnb">
+      <Link>Content\work.xnb</Link>
+      <DeployService-Deploy>true</DeployService-Deploy>
+    </Content>
+  </ItemGroup>
+</Project>

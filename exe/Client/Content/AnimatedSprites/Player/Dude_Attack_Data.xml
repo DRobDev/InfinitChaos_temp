@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MySheet version ="1.0">
+	<sprite name ="0" xpos="2" ypos="2" width="120" height="206" pivx="0.6333333333333333" pivy="0.23786407766990292" />
+	<sprite name ="1" xpos="124" ypos="2" width="144" height="218" pivx="0.4513888888888889" pivy="0.2889908256880734" />
+	<sprite name ="2" xpos="270" ypos="2" width="256" height="382" pivx="0.31640625" pivy="0.4973821989528796" />
+	<sprite name ="3" xpos="528" ypos="2" width="254" height="388" pivx="0.3110236220472441" pivy="0.5051546391752577" />
+	<sprite name ="4" xpos="2" ypos="392" width="248" height="382" pivx="0.29435483870967744" pivy="0.4973821989528796" />
+	<sprite name ="5" xpos="252" ypos="392" width="204" height="194" pivx="0.35784313725490197" pivy="0.7680412371134021" />
+	<sprite name ="6" xpos="458" ypos="392" width="234" height="150" pivx="0.31196581196581197" pivy="0.7" />
+	<sprite name ="7" xpos="694" ypos="392" width="242" height="126" pivx="0.2975206611570248" pivy="0.6507936507936508" />
+</MySheet>
+
+
+
+
+
+
+
